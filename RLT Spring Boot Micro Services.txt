@@ -1,0 +1,689 @@
+Spring Boot (5 days)   On Call : dial 7600#  951947# or 170233#
+================
+\\10.128.32.91 
+username :trnguser1
+password :Syntel123
+
+New Training Data \\Pradeep \\ RLT Spring Boot 
+
+Course Details
+===========
+Day1 :Spring Basics(DI, IOC,Spring Bean Life Cycle,Auto Wiring (XML + Annoataion)
+         setter injections
+         constructor injection
+         interface injection    
+Day2 :Spring Web MVC ,Spring Boot Basics
+Day3 :Spring Boot
+Day4 :Spring Boot
+Day5 :Spring Boot
+
+===============================================================================
+
+========
+Day1
+========
+                Java SE  ->Core Java -> Stand alone applications  
+                Java EE  ->Advance Java-> Enterprise application
+                Java ME ->                       Mobile Applications
+
+Q.What is enterprise ? 
+     Any business orginization is known as enterprise.
+
+    Enterprises do the business by providing services
+  
+
+Ex.  Colleges -> Online Admission Form,
+       Hotels    ->Online Order,Online Room booking
+       Banks    ->Witdraw,Deposit,Transfer Fund
+       LICs       ->Online Premium pay 
+       Hospital ->Online Appointement
+       Transoprt Companies ->bbking ticket,cancelling tickets
+
+
+Every enterprise applications comprises of Four Layers
+=====================================================================
+1.Presentation Layer  
+2.Service Layer
+3.Data Access Layer
+4.Data Layer
+======================================================================
+
+Data Layer
+==========
+    RDBMS -MySQL,Oracle
+    NOSQL-Mongo DB,DynomoDB
+    Text File
+    Excel File
+    XML File
+    Collections
+    Another Business application
+    
+
+Data Access Layer
+===============
+jdbc
+third party Jar Files
+java.io
+jdbc
+jaxp
+java.util
+servlet api
+
+
+Service Layer
+=============
+Java Bean
+
+
+Presentation Layer
+================
+(Static+Dynamic)
+
+Client Side
+=========
+HTML,
+JS
+CSS
+jQuery
+Angular JS
+Angular
+Boot strap
+React
+
+
+Server Side
+==========
+Servlet
+JSP
+JSF
+Struts
+Spring Web MVC
+
+
+Employee Management System  (Employee)
+===================================
+Employee
+            employeeId (auto generated)
+            fname
+            lname
+            salary 
+            email (auto genearted)
+            doj    (auto genrated)
+            mobile
+            pan          
+
+
+Data Source :Collection
+                           Map
+
+boolean saveEmployee(Employee employee);
+
+boolean findEmployee(int employeId);
+
+boolean deleteEmployee(int employeeId);
+
+boolean updateEmployee(Employee employee);
+
+boolean addEmployee(Employee employee);
+
+ List<Employee> findAllEmployees();
+
+=======================================================================
+
+EmsApp
+     ==>
+       EmployeeService
+                  ===> 
+                    EmployeeDao
+                       MapEmployeeDaoImpl
+                                    ==>EmployeeMap                                 
+
+Spring ->(Inversion Of Control,Dependency Injection)
+
+1.Install Spring Software (jar files) in class path
+
+2.Create a Spring Container by passing spring config file
+                                                   
+                    BeanFactory  (I)
+                         |
+                ApplicationContext (I)
+                         |
+          ServletWebApplicationContext  (I)
+ 
+ApplicationContext c=new ClassPathXMLApplicationContext("beans.xml");
+
+Spring Bean Life Cycle
+=====================
+1.Loading
+2.Instantiation
+3.Dependency Injection
+4.Service
+5.Destruction
+
+
+Spring Ben Scopes => singletone|prototype|request|session
+
+
+Auto Wiring
+=============
+It is a mechanism of delgating the responsibility of assocaiating the beans to spring container.
+
+autowire= no|byName|byType|constructor
+
+
+
+Spring Application using annoations
+====================================
+
+Any class which is declared with below annoatioans is registered as Spring Bean
+
+To scan these annotations use below tag in spring config file:
+
+<context:component-scan base-package="com">
+
+               @Component
+
+@Controller        @Service     @Respository
+
+===============================================================================
+Day2
+===================
+Spring Web MVC (Model View Controller)
+==========================================
+                  Model               View             Controller   
+
+JSP Model1        Java Bean          JSP                JSP 
+ 
+JSP Model2        Java Bean          JSP                Servlet 
+                                               Struts1.x,JSF1.x,2.x,Spring Web MVC
+
+JSP Model3        Java Bean          JSP                Filter
+                                                       Struts2.x 
+
+JSP Model4        Java Bean          JSP                Tag Handler
+ 
+Spring Boot
+============
+Step 1 :Install Apche Maven (i.e Extract Apche maven zip)
+
+Stpe 2: do the below chanes in settings.xml (D:\apache-maven-3.5.0\conf)
+
+<localRepository>d://pradeep//repository</localRepository>
+ 
+<proxies>
+<proxy>
+      <id>HTTP</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>10.119.32.71</host>
+      <port>8080</port>
+    </proxy>
+	
+	<proxy>
+      <id>HTTPS</id>
+      <active>true</active>
+      <protocol>https</protocol>
+      <host>10.119.32.71</host>
+      <port>8080</port>
+    </proxy>
+	
+<proxy>
+      <id>FTP</id>
+      <active>true</active>
+      <protocol>ftp</protocol>
+      <host>10.119.32.71</host>
+      <port>8080</port>
+    </proxy>
+
+</proxies>
+
+Step 3: set environment variable
+
+          M2_HOME = D:\apache-maven-3.5.0
+          path = D:\apache-maven-3.5.0\bin 
+
+Step 4: Configure Maven in STS
+
+         Windows->Preferences->Maven->Installations-> Add 
+          => Instalation Type=>External
+             Installation Home =>D:\apache-maven-3.5.0
+             
+Users setting =>
+      change location of settings.xml to
+              (D:\apache-maven-3.5.0\conf\setings.xml)
+         
+
+Step 5 :
+
+     Open  =>  https://start.spring.io/
+
+     Generate Maven Project with necessary deepndencies
+
+     Extract the project and import into STS
+
+===============================================================================
+Day3
+=====================
+Develop a Restful API With Spring boot to perform CRUD Operations
+on employee
+
+URL                                                 METHOD      
+
+http://localhost:2222/spring-boot-ems-v2/employees    GET   GET ALL Employees
+
+http://localhost:2222/spring-boot-ems-v2/employees/filter?min=100&max=200   GET   GET ALL Employees With salary between
+
+http://localhost:2222/spring-boot-ems-v2/employees/1  GET   GET Employee With ID 1
+
+http://localhost:2222/spring-boot-ems-v2/employees/1  DELETE  DELETE Employee With ID 1
+
+http://localhost:2222/spring-boot-ems-v2/employees/1  PUT     UPDATE Employee With ID 1
+
+http://localhost:2222/spring-boot-ems-v2/employees    POST     ADD EMPLOYEE
+
+
+Client                                         Server
+
+Accept (application/json)                 ContenType =>application/json  
+
+
+ContentType                                  Accept
+
+ 
+==================
+CrudRepository
+    |
+PagingAndSortingRepository
+    |
+JpaRepository
+
+
+
+For MongoDB
+==============
+Install MongoDB  =>D:\MongoDB
+
+To start Mongo DB Server :
+
+D:\MongoDB\Server\3.2\bin>mongod --dbpath d:\mongodata
+
+To start Mongo Client :
+ 
+D:\MongoDB\Server\3.2\bin>mongo
+
+Create database
+>use company
+
+
+RDBMS                      MongoDB
+
+Database                  Database
+
+Table                     Collection
+
+Row/Tupple                Document
+
+Column                    Field 
+
+Primary key               (_Id automaticalyy gernate by MongoDB server)
+
+Joins                    Embeded documents
+
+id  name  salary 
+=================
+101  Ram 10000                {id:101,name:'Ram',salary:45000} 
+==================
+
+===============================================================================
+Day4
+===================
+====================================================
+1.Spring Web MVC (Serlvets & JSP)CRUD App using Spring Boot
+====================================================
+
+Step 1 :Register ViewResolver in application.properties
+
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+
+
+
+Step 2: To Send JSP Response add below dependencies in pom.xml
+	
+          <dependency>
+			
+                   <groupId>org.springframework.boot</groupId>
+
+                  <artifactId>spring-boot-starter-tomcat</artifactId>
+
+	</dependency>
+
+
+	<dependency>
+
+	<groupId>org.apache.tomcat.embed</groupId>
+
+	<artifactId>tomcat-embed-jasper</artifactId>
+
+	</dependency>
+
+		
+            <dependency>
+	<groupId>javax.servlet</groupId>
+
+	<artifactId>jstl</artifactId>
+
+           </dependency>
+
+
+
+
+
+==============
+2.Spring Security
+===============         
+                   
+                <dependencies>
+                          <dependency>
+                         <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-security</artifactId>
+                        </dependency>
+                  </dependencies>
+
+
+spring.security.user.name=rajesh  (default :user)
+spring.security.user.password=rajesh@syntel  (password :generated on console)
+
+
+
+===================
+3.Spring Boot Actuators
+===================
+Spring Boot Actuator is a sub-project of Spring Boot. 
+It adds several production grade services to your application with little effort on your part. 
+
+
+To add the actuator to a Maven based project, add the following ‘Starter’ dependency:
+
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+</dependencies>
+
+
+#Actuator endpoints let you monitor and interact with your application. 
+#Spring Boot includes a number of built-in endpoints and lets you add your own. 
+#For example, the health endpoint provides basic application health information.
+
+
+Enabling Endpoints
+================
+
+
+By default, all endpoints except for shutdown are enabled. To configure the enablement of an endpoint, use its management.endpoint.<id>.enabled property. The following example enables the shutdown endpoint:
+
+management.endpoint.shutdown.enabled=true
+
+If you prefer endpoint enablement to be opt-in rather than opt-out, set the management.endpoints.enabled-by-default property to false and use individual endpoint enabled properties to opt back in. The following example enables the info endpoint and disables all other endpoints:
+
+management.endpoints.enabled-by-default=false
+management.endpoint.info.enabled=true
+
+
+=====================
+4.Spring Boot Profiles
+=======================
+#Enterprise application development is complex. You have multiple environments
+
+1.Dev
+2.QA
+3.Stage
+4.Production
+5.Test
+6.UAT/Pre prod
+
+You want to have different application configuration in each of the environments.
+
+Profiles help to have different application configuration for different environments.
+
+Spring and Spring Boot provide features where you can specify
+
+What is the configuration for various environments in different profiles?
+Set the active profile for a specific environment.
+Spring Boot would pick up the application configuration based on the active profile that is set in a specific environment.
+
+
+========================
+5.Spring Boot Swagger2
+========================
+
+SOAP based Web Services :Interoperability
+
+SOA (Service Oriented Architecture)
+
+Service Provider
+
+Service Consumer
+
+Service Registry
+
+
+To publish a service there is need of some language 
+WSDL serves that purpose
+
+SOAP :there is need of communication protocol bbetween SP and SC
+      SOAP serves that purpose   
+
+UDDI :To sore the Service there is need of some protocol
+      UDDI serves that purpose 
+
+
+2 approaches to implement SOAP web services
+
+Based on Wheteher WSDL is defined first or end point(Web Serivce implementation class) there are two approcahes.
+
+1.Top Town (Contract First)
+          WSDL is written first and then end point will be written.
+
+
+1.Bottom Up (Contract Last)
+
+         end point will be written and then with the help of some tools WSDL will be genertaed
+
+JAXB  API
+
+Marshling  :Java to XML
+
+Unmarshling :XML To Java
+
+
+Spring Boot makes developing RESTful services ridiculously easy — and using Swagger makes documenting your RESTful services easy.
+
+Building a back-end API layer introduces a whole new area of challenges that goes beyond implementing just endpoints. You now have clients which will now be using your API. Your clients will need to know how to interact with your API. In SOAP-based web services, you had a WSDL to work with. This gave API developers an XML-based contract, which defined the API. However, with RESTFul web services, there is no WSDL. Thus your API documentation becomes more critical.
+
+API documentation should be structured so that it’s informative
+
+<!-- swagger -->
+			<dependency>
+         <groupId>io.springfox</groupId>
+         <artifactId>springfox-swagger2</artifactId>
+         <version>2.7.0</version>
+      </dependency>
+
+      <dependency>
+         <groupId>io.springfox</groupId>
+         <artifactId>springfox-swagger-ui</artifactId>
+         <version>2.7.0</version>
+      </dependency>
+
+================================
+MicroService And Spring Cloud
+====================================
+
+
+
+
+Microservices is the hot buzzword in software development and many organizations prefer building their enterprise applications using microservices architecture. In the Java community, Spring Boot is the most widely used framework for building both monoliths and microservices. I am planning to write a series of articles covering how to build microservices using Spring Boot and Spring Cloud.
+
+In this article, we are going to learn about the following:
+
+1.Monolithc Applications
+2.What are microservices?
+3.Advantages of microservices
+4.Challenges with microservices
+5.Why Spring Boot and Spring Cloud are a good choice for microservices
+6.Introducing the application
+
+Traditionally, we are building large enterprise applications in a modularized fashion (?!) but finally deploy them together as a single deployment unit (EAR or WAR). These are called monolithic applications.
+
+There are some issues with the monolithic architecture, such as
+
+Large codebases become a mess over time.
+Multiple teams working on a single codebase becomes tedious.
+It is not possible to scale up only certain parts of the application.
+Technology updates/rewrites become complex and expensive tasks.
+However, in my opinion, it is relatively easy to deploy and monitor monoliths compared to microservices.
+
+What is a Micro Services ?
+=========================
+A microservice is a service built around a specific business capability which can be independently deployed. So, to build large enterprise applications, we can identify the sub-domains of our main business domain and build each sub-domain as a microservice using Domain Driven Design (DDD) techniques. But in the end, we need to make all these microservices work together to serve the end user as if it is a single application.
+
+Advantages of Microservices
+======================
+
+Comprehending a smaller codebase is easy.
+You can independently scale up highly used services.
+Each team can focus on one (or a few) microservice(s).
+Technology updates/rewrites become simpler.
+
+
+Challenges With Microservices
+========================
+Getting the correct sub-domain boundaries, in the beginning, is hard.
+You need more skilled developers to handle distributed application complexities.
+Managing microservices-based applications without the proper DevOps culture is next to impossible.
+A local developer environment setup might become complex to test cross-service communications, though by using Docker/Kubernetes, this can be mitigated to some extent.
+
+Spring Boot is the most popular and widely-used Java framework for building MicroServices. These days, many organizations prefer to deploy their applications in a Cloud environment instead of the headache of maintaining a datacenter themselves. But, we need to take good care of the various aspects to make our applications Cloud Native. There comes the beauty of Spring Cloud.
+
+Spring Cloud is essentially an implementation of various design patterns to be followed while building Cloud Native applications. Instead of reinventing the wheel, we can simply take advantage of various Spring Cloud modules and focus on our main business problem rather than worrying about infrastructural concerns.
+
+Following are just a few Spring Cloud modules that can be used to address distributed application concerns:
+
+Spring Cloud Config Server: 
+======================
+Used to externalize the configuration of applications in a central config server with the ability to update the configuration values without requiring to restart the applications. We can use Spring Cloud Config Server with git, Consul, or ZooKeeper as a config repository.
+
+Service Registry and Discovery: 
+=========================
+As there could be many services and we need the ability to scale up or down dynamically, we need a Service Registry and Discovery mechanism so that service-to-service communication does not depend on hard-coded hostnames and port numbers. Spring Cloud provides Netflix Eureka-based Service Registry and Discovery support with just minimal configuration. We can also use Consul or ZooKeeper for Service Registry and Discovery.
+
+
+Circuit Breaker: 
+============
+In microservices-based architecture, one service might depend on another service, and if one service goes down, then failures may cascade to other services as well. Spring Cloud provides a Netflix Hystrix-based Circuit Breaker to handle these kinds of issues.
+
+Spring Cloud Data Streams:
+======================
+ We may need to work with huge volumes of data streams using Kafka or Spark. Spring Cloud Data Streams provides higher-level abstractions to use those frameworks more easily.
+
+Spring Cloud Security:
+===================
+ Some microservices need to be accessible to authenticated users only, and most likely, we'll want a Single Sign-On feature to propagate the authentication context across services. Spring Cloud Security provides authentication services using OAuth2.
+
+Distributed Tracing:
+===============
+ One of the pain points with microservices is the ability to debug issues. One simple end-user action might trigger a chain of microservice calls; there should be a mechanism to trace the related call chains. We can use Spring Cloud Sleuth with Zipkin to trace cross-service invocations.
+
+Spring Cloud Contract: 
+==================
+There is a high chance that separate teams will work on different microservices. There should be a mechanism for teams to agree upon API endpoint contracts so that each team can develop their APIs independently. Spring Cloud Contract helps to create such contracts and validate them by both the service provider and consumer.
+
+These are just a few of Spring Cloud's features. To explore more, visit 
+
+https://projects.spring.io/spring-cloud/.
+
+I strongly believe in learning by example, so let us learn how to build microservices using Spring Boot and Spring Cloud with a sample application. I will deliberately keep the application business logic very simple so that we focus on understanding the Spring Boot and Spring Cloud features.
+
+
+
+Case Study/ Project
+
+build a simple shopping cart application and assume we are going to start with the following 
+microservices:
+
+catalog-service: It provides a REST API to provide catalog information like products.
+
+inventory-service: It provides a REST API to manage product inventory.
+
+cart-service: It provides a REST API to hold the customer cart details.
+
+order-service: It provides a REST API to manage orders.
+
+customer-service: It provides a REST API to manage customer information.
+
+shoppingcart-ui: It is a customer-facing front-end web application.
+
+
+Refer to below sites
+=====================
+
+https://o7planning.org/en/10683/create-a-shopping-cart-web-application-with-spring-boot-hibernate
+
+
+
+	
+
+  
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+     
+
+
+
+
+
+
+
+
+ 
